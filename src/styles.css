@@ -1,0 +1,11 @@
+body {
+  background-color: black;
+  padding: 0;
+  margin: 0;
+}
+
+.App {
+  font-family: sans-serif;
+  text-align: center;
+  background-color: rgba(16, 32, 192, 0.3);
+}

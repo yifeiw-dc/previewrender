@@ -1,16 +1,17 @@
 import React from "react";
-import floorplanData from "./floorplan-data";
-import Floorplan from "./Floorplan";
+import pageplanData from "./page-element-data";
+import Pageplan from "./Pageplan";
 import "./styles.css";
 
 export default function App() {
   return (
     <div className="App">
       <svg
-        viewBox="-1000 -1000 14000 11000"
+        viewBox="0 0 1000 1000"
         shape-rendering="geometricPrecision"
+        viewport-fill="white"
       >
-        <Floorplan data={floorplanData} />
+        <Pageplan data={pageplanData} />
       </svg>
     </div>
   );

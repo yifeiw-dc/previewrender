@@ -2,7 +2,7 @@ import React from "react";
 
 const PageElement = ({ id, coords, fill }) => {
   const points = coords.map( a => a.x+','+a.y ).join(' ')
-
+  const final_fill=fill
   return (
     <g>
       <polygon
@@ -10,7 +10,7 @@ const PageElement = ({ id, coords, fill }) => {
         points={points}
         stroke="white"
         strokeWidth="1"
-        fill={fill}
+        fill={final_fill}
       />
       <text
         x={coords[0].x + 5}

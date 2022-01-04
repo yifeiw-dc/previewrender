@@ -8,10 +8,9 @@ export default function App() {
     <div className="App">
       <svg
         viewBox="0 0 1000 1000"
-        shape-rendering="geometricPrecision"
-        viewport-fill="white"
+        shapeRendering="geometricPrecision"
       >
-        <Pageplan data={pageplanData} />
+        <Pageplan data={pageplanData}/>
       </svg>
     </div>
   );

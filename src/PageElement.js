@@ -9,6 +9,7 @@ const PageElement = ({ id, title, coords, color }) => {
         points={points}
         stroke="white"
         strokeWidth="1"
+        strokeOpacity="0.3"
         fill={color}
       />
       <text

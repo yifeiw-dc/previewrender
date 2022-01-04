@@ -1,4 +1,5 @@
 import React from "react";
+import { HexColorPicker, HexColorInput } from "react-colorful";
 
 class ColorElement extends React.Component {
   constructor(props) {
@@ -7,27 +8,22 @@ class ColorElement extends React.Component {
   }
 
   handleChange(e) {
-    this.props.onUpdate(e.target.id, e.target.value);
+    this.props.onUpdate(this.props.colorElement.id, e);
   }
 
   render() {
-    const id = this.props.colorElement.id;
     const color = this.props.colorElement.color;
     const title = this.props.colorElement.title;
-    const style = {
-      backgroundColor: color,
-    };
+
     return (
-      <fieldset>
-        <legend>Enter color for {title}:</legend>
-        <input
-          id={id}
+      <fieldset className="small custom-pointers">
+        <legend>{title}</legend>
+        <HexColorPicker
+          color={color}
           onChange={this.handleChange} />
-        <span
-          style={style}
-        >
-        &nbsp;&nbsp;
-        </span>
+        <HexColorInput 
+          color={color} 
+          onChange={this.handleChange} />
       </fieldset>
     );
   }

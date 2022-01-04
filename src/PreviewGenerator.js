@@ -37,7 +37,7 @@ class PreviewGenerator extends React.Component {
     return (
       <div>
         <div className="ColorElements inline">
-          <h1>Color Elements</h1>
+          <h1>Page Elements Color</h1>
           <ul>{colorElementsList}</ul>
         </div>
         <div className="PreviewRender inline">

@@ -12,6 +12,7 @@
   "devDependencies": {
     "eslint": "^5.16.0",
     "eslint-plugin-react": "^7.28.0",
+    "react-colorful": "^5.5.1",
     "typescript": "3.3.3"
   },
   "scripts": {

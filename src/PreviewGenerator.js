@@ -1,47 +1,67 @@
 import React from "react";
-import pageElements from "./PageElementData";
-import ColorElement from "./ColorElement";
+
+import previewInputs from "./PreviewInputs";
+import InputElement from "./InputElement";
+import CheckboxInputElement from "./CheckboxInputElement";
+import ColorInputElement from "./ColorInputElement";
+
 import Pageplan from "./Pageplan";
+
 import "./styles.css";
 
 class PreviewGenerator extends React.Component {
   constructor(props) {
     super(props);
-    this.handleElementColorChange = this.handleElementColorChange.bind(this);
-    this.state = {
-      pageElements,
-    };
+    this.updatePreviewData = this.updatePreviewData.bind(this);
+    this.state = { inputValues: {} };
   }
 
-  handleElementColorChange(id, color) {
-    const updatedPageElements = this.state.pageElements.map((pE) => {
-      if (pE.id === id) {
-        return { ...pE, color: color };
-      }
-      return pE;
-    });
-    this.setState({ pageElements: updatedPageElements });
+  updatePreviewData(inputData) {
+    var inputValues = Object.assign({}, this.state.inputValues, inputData);
+
+    this.setState({ inputValues: inputValues });
   }
 
   render() {
-    const colorElementsList = this.state.pageElements.map((ce) => (
-      <ColorElement
-        key={ce.id}
-        colorElement={ce}
-        onUpdate={this.handleElementColorChange}
-      />
-    ));
+    const inputElementList = previewInputs.map((previewInput) => {
+      switch (previewInput.input_type) {
+        case "checkbox":
+          return (
+            <CheckboxInputElement
+              key={previewInput.id}
+              inputElement={previewInput}
+              updatePreviewData={this.updatePreviewData}
+            />
+          );
+        case "color":
+          return (
+            <ColorInputElement
+              key={previewInput.id}
+              inputElement={previewInput}
+              updatePreviewData={this.updatePreviewData}
+            />
+          );
+        default:
+          return (
+            <InputElement
+              key={previewInput.id}
+              inputElement={previewInput}
+              updatePreviewData={this.updatePreviewData}
+            />
+          );
+      }
+    });
 
     return (
       <div>
         <div className="ColorElements inline">
-          <h1>Page Elements Color</h1>
-          <ul>{colorElementsList}</ul>
+          <h1>Page Element Inputs</h1>
+          <ul>{inputElementList}</ul>
         </div>
         <div className="PreviewRender inline">
           <h1>Generated Preview</h1>
           <svg viewBox="0 0 1000 1000" shapeRendering="geometricPrecision">
-            <Pageplan data={this.state} />
+            <Pageplan data={this.state.inputValues} />
           </svg>
         </div>
       </div>

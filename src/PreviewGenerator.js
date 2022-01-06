@@ -4,29 +4,27 @@ import ColorElement from "./ColorElement";
 import Pageplan from "./Pageplan";
 import "./styles.css";
 
-
-
 class PreviewGenerator extends React.Component {
   constructor(props) {
     super(props);
     this.handleElementColorChange = this.handleElementColorChange.bind(this);
     this.state = {
-      pageElements
+      pageElements,
     };
   }
 
   handleElementColorChange(id, color) {
-    const updatedPageElements = this.state.pageElements.map(pE => {
+    const updatedPageElements = this.state.pageElements.map((pE) => {
       if (pE.id === id) {
         return { ...pE, color: color };
       }
       return pE;
     });
-    this.setState({ pageElements: updatedPageElements })
+    this.setState({ pageElements: updatedPageElements });
   }
 
   render() {
-    const colorElementsList = this.state.pageElements.map(ce => (
+    const colorElementsList = this.state.pageElements.map((ce) => (
       <ColorElement
         key={ce.id}
         colorElement={ce}
@@ -42,11 +40,8 @@ class PreviewGenerator extends React.Component {
         </div>
         <div className="PreviewRender inline">
           <h1>Generated Preview</h1>
-          <svg
-            viewBox="0 0 1000 1000"
-            shapeRendering="geometricPrecision"
-          >
-            <Pageplan data={this.state}/>
+          <svg viewBox="0 0 1000 1000" shapeRendering="geometricPrecision">
+            <Pageplan data={this.state} />
           </svg>
         </div>
       </div>
@@ -54,5 +49,4 @@ class PreviewGenerator extends React.Component {
   }
 }
 
-export default PreviewGenerator
-
+export default PreviewGenerator;

@@ -1,7 +1,7 @@
 import React from "react";
 
 const PageElement = ({ id, title, coords, color }) => {
-  const points = coords.map( a => a.x+','+a.y ).join(' ')
+  const points = coords.map((a) => a.x + "," + a.y).join(" ");
   return (
     <g>
       <polygon
@@ -12,12 +12,7 @@ const PageElement = ({ id, title, coords, color }) => {
         strokeOpacity="0.3"
         fill={color}
       />
-      <text
-        x={coords[0].x + 5}
-        y={coords[0].y + 15}
-        fill="red"
-        fontSize="10"
-      >
+      <text x={coords[0].x + 5} y={coords[0].y + 15} fill="red" fontSize="10">
         {title}
       </text>
     </g>

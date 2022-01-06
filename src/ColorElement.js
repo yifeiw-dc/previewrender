@@ -18,12 +18,8 @@ class ColorElement extends React.Component {
     return (
       <fieldset className="small custom-pointers">
         <legend>{title}</legend>
-        <HexColorPicker
-          color={color}
-          onChange={this.handleChange} />
-        <HexColorInput 
-          color={color} 
-          onChange={this.handleChange} />
+        <HexColorPicker color={color} onChange={this.handleChange} />
+        <HexColorInput color={color} onChange={this.handleChange} />
       </fieldset>
     );
   }

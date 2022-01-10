@@ -2,7 +2,7 @@ import React from "react";
 import pageElements from "./PageElementData";
 import PageSvgGroup from "./PageSvgGroup";
 
-function Pageplan(data) {
+function PageElementList(data) {
   const previewElements = pageElements.map((pe) => {
     let updatedOption = {};
     switch (pe.group) {
@@ -28,4 +28,4 @@ function Pageplan(data) {
   return previewElements.map((pe) => <PageSvgGroup key={pe.id} {...pe} />);
 }
 
-export default Pageplan;
+export default PageElementList;
